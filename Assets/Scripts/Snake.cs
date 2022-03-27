@@ -8,7 +8,7 @@ public class Snake : MonoBehaviour {
     [SerializeField]
     private GameObject snakeSegmentPrefab;
 
-    private List<GameObject> snakeSegments;
+    protected List<GameObject> snakeSegments;
 
     //change this shit
     public bool enemy = false;
@@ -85,20 +85,26 @@ public class Snake : MonoBehaviour {
         snakeSegments.Add(segment);
     }
 
-    protected void ResetGame() {
+    protected virtual void ResetGame() {
         for(int i = 1; i < snakeSegments.Count; i++) {
             Destroy(snakeSegments[i].gameObject);
         }
+        ResetGameBase();
+    }
+
+    protected void ResetGameBase()
+    {
         snakeSegments.Clear();
         snakeSegments.Add(this.gameObject);
         //change and think about this shit
-        if (enemy) {
+        if (enemy)
+        {
             this.transform.position = Vector3.zero;
         }
-        else {
+        else
+        {
             this.transform.position = new Vector3(10f, 10f, 0.0f);
         }
-        //
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {

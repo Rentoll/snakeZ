@@ -38,4 +38,14 @@ public class SnakeMP : Snake
         GameObject segment = PhotonNetwork.Instantiate(Path.Combine("Prefabs", "SnakeSegmentMP"), this.transform.position, this.transform.rotation);
         base.GrowBase(segment);
     }
+
+    protected override void ResetGame()
+    {
+        for (int i = 1; i < snakeSegments.Count; i++)
+        {
+            PhotonNetwork.Destroy(snakeSegments[i].gameObject);
+        }
+
+        base.ResetGameBase();
+    }    
 }
