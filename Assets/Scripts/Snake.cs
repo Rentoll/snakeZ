@@ -1,19 +1,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Snake : MonoBehaviour {
     private Vector2 direction = Vector2.right;
-
+    
     [SerializeField]
     private GameObject snakeSegmentPrefab;
 
     private List<GameObject> snakeSegments;
 
     //change this shit
-    [SerializeField]
-    private bool enemy = false;
+    public bool enemy = false;
     //
-    private void Start() {
+    protected void Start() {
         snakeSegments = new List<GameObject>();
         snakeSegments.Add(this.gameObject);
     }
@@ -22,7 +22,7 @@ public class Snake : MonoBehaviour {
         Control();
     }
 
-    private void FixedUpdate() {
+    protected void FixedUpdate() {
 
         for(int i = snakeSegments.Count - 1; i > 0; i--) {
             snakeSegments[i].gameObject.transform.position = snakeSegments[i - 1].gameObject.transform.position;
@@ -35,7 +35,7 @@ public class Snake : MonoBehaviour {
             );
     }
 
-    private void Control() {
+    protected void Control() {
         if (enemy == false) {
             if (Input.GetKeyDown(KeyCode.W)) {
                 direction = Vector2.up;
@@ -79,7 +79,7 @@ public class Snake : MonoBehaviour {
         snakeSegments.Add(segment);
     }
 
-    private void ResetGame() {
+    protected void ResetGame() {
         for(int i = 1; i < snakeSegments.Count; i++) {
             Destroy(snakeSegments[i].gameObject);
         }

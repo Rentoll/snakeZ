@@ -7,6 +7,8 @@ TagManager:
   - Snake
   - Food
   - Obstacle
+  - Bullet
+  - PhotonPlayer
   layers:
   - Default
   - TransparentFX
