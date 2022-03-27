@@ -67,10 +67,16 @@ public class Snake : MonoBehaviour {
         //
     }
 
-    private void Grow() {
+    protected virtual void Grow() {
         GameObject segment = Instantiate(this.snakeSegmentPrefab);
         //think about this shit
-        if(enemy) {
+        GrowBase(segment);
+    }
+
+    protected void GrowBase(GameObject segment)
+    {
+        if (enemy)
+        {
             segment.GetComponent<SpriteRenderer>().color = Color.red;
         }
         //
