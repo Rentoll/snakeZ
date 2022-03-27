@@ -193,9 +193,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'You will be playing using arrow keys.
+  m_Text: 'You will be playing using arrow keys
 
-    Your snake is BLUE
+    Your snake is <b><color=red>RED</color></b>
 
     Game
     will start immideatly after countdown'
