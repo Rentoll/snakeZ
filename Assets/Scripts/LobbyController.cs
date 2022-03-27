@@ -11,8 +11,9 @@ public class LobbyController : MonoBehaviourPunCallbacks
     private PhotonView myPhotonView;
     private int players;
     private int maxPlayers;
-    private float waitTime = 15;
-    private float currentWaitTime;
+    private float waitTime = 15f;
+    private float currentWaitTime = 15f;
+    private float localWaitTime = 15f;
     public Text playerCount;
     public Text startTimer;
 
@@ -56,12 +57,15 @@ public class LobbyController : MonoBehaviourPunCallbacks
     private void RPC_SendTimer(float timeIn)
     {
         currentWaitTime = timeIn;
+        if (timeIn < localWaitTime)
+        {
+            localWaitTime = timeIn;
+        }
     }
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
         PlayerCountUpdate(); 
     }
-
 
     // Update is called once per frame
     void Update()
@@ -78,10 +82,11 @@ public class LobbyController : MonoBehaviourPunCallbacks
 
         if (readyToStart)
         {
-            currentWaitTime -= Time.deltaTime;
+            localWaitTime -= Time.deltaTime;
+            currentWaitTime = localWaitTime;
         }
 
-        string tempTimer = string.Format("{00}", currentWaitTime);
+        string tempTimer = string.Format("{0:00}", currentWaitTime);
         startTimer.text = tempTimer;
 
         if (currentWaitTime <= 0f)

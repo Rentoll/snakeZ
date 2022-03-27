@@ -21,7 +21,6 @@ public class MyPhotonPlayer : MonoBehaviour
         }
         if (myPV.IsMine)
         {
-            
             if (second)
             {
                 myPlayerAvatar = PhotonNetwork.Instantiate(Path.Combine("Prefabs", "SnakeHeadMP"), Vector2.zero, Quaternion.identity);

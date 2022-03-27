@@ -12,6 +12,10 @@ public class SnakeMP : Snake
     {
         base.Start();
         myPV = GetComponent<PhotonView>();
+        if (!enemy)
+        {
+            GetComponent<SpriteRenderer>().color = Color.blue;
+        }
     }
 
     // Update is called once per frame
