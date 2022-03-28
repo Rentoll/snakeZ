@@ -3,16 +3,16 @@ using UnityEngine;
 
 
 public class Snake : MonoBehaviour {
-    private Vector2 direction = Vector2.right;
-    
+    private Vector2 direction = Vector2.down;
+    private Vector2 oldDirection;
+
     [SerializeField]
     private GameObject snakeSegmentPrefab;
 
     protected List<GameObject> snakeSegments;
 
-    //change this shit
     public bool enemy = false;
-    //
+    
     protected void Start() {
         snakeSegments = new List<GameObject>();
         snakeSegments.Add(this.gameObject);
@@ -22,9 +22,8 @@ public class Snake : MonoBehaviour {
         Control();
     }
 
-    protected void FixedUpdate() {
-
-        for(int i = snakeSegments.Count - 1; i > 0; i--) {
+    protected void FixedUpdate() { 
+        for (int i = snakeSegments.Count - 1; i > 0; i--) {
             snakeSegments[i].gameObject.transform.position = snakeSegments[i - 1].gameObject.transform.position;
         }
 
@@ -33,9 +32,12 @@ public class Snake : MonoBehaviour {
             Mathf.Round(this.transform.position.y) + direction.y,
             0.0f
             );
+
+        
     }
 
-    protected void Control() {
+    protected void Control(){
+        oldDirection = direction;
         if (enemy == false) {
             if (Input.GetKeyDown(KeyCode.W)) {
                 direction = Vector2.up;
@@ -49,7 +51,6 @@ public class Snake : MonoBehaviour {
             if (Input.GetKeyDown(KeyCode.D)) {
                 direction = Vector2.right;
             }
-            //change this shit
         } else {
             if (Input.GetKeyDown(KeyCode.UpArrow)) {
                 direction = Vector2.up;
@@ -64,12 +65,13 @@ public class Snake : MonoBehaviour {
                 direction = Vector2.right;
             }
         }
-        //
+
+        this.transform.Rotate(Vector3.forward, Vector2.SignedAngle(oldDirection, direction));
     }
 
     protected virtual void Grow() {
         GameObject segment = Instantiate(this.snakeSegmentPrefab);
-        //think about this shit
+        
         GrowBase(segment);
     }
 
@@ -79,7 +81,7 @@ public class Snake : MonoBehaviour {
         {
             segment.GetComponent<SpriteRenderer>().color = Color.red;
         }
-        //
+        
         segment.gameObject.transform.position = snakeSegments[snakeSegments.Count - 1].gameObject.transform.position;
 
         snakeSegments.Add(segment);
@@ -96,7 +98,7 @@ public class Snake : MonoBehaviour {
     {
         snakeSegments.Clear();
         snakeSegments.Add(this.gameObject);
-        //change and think about this shit
+        
         if (enemy)
         {
             this.transform.position = Vector3.zero;
@@ -111,8 +113,7 @@ public class Snake : MonoBehaviour {
         if (collision.tag == "Food") {
             Grow();
         }
-        //colliders not properly works with other snake
-        //think and change this shit
+       
         if(collision.tag == "Obstacle" || collision.tag == "Snake") {
             ResetGame();
         }

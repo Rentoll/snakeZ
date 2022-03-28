@@ -855,18 +855,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0025584996, y: -0.047186658}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.64, y: 0.64}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.75, y: 0.75}
+  m_Size: {x: 0.54020005, y: 0.44590834}
   m_EdgeRadius: 0
 --- !u!212 &1787571654
 SpriteRenderer:
@@ -908,8 +908,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.05740881, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 6bdca5ffcfa08204a9f50914c28d1073, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -927,8 +927,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1787571651}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 1.491, y: -0.496, z: 0}
+  m_LocalScale: {x: 1.5620123, y: 1.524506, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
@@ -944,17 +944,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: SnakeHead
       objectReference: {fileID: 0}
+    - target: {fileID: 2570740800851658069, guid: 2ad03207fa51f524eb0b865985cdbb24, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2570740800851658069, guid: 2ad03207fa51f524eb0b865985cdbb24, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2570740800851658069, guid: 2ad03207fa51f524eb0b865985cdbb24, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2570740800851658074, guid: 2ad03207fa51f524eb0b865985cdbb24, type: 3}
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2570740800851658074, guid: 2ad03207fa51f524eb0b865985cdbb24, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.509
       objectReference: {fileID: 0}
     - target: {fileID: 2570740800851658074, guid: 2ad03207fa51f524eb0b865985cdbb24, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.487
       objectReference: {fileID: 0}
     - target: {fileID: 2570740800851658074, guid: 2ad03207fa51f524eb0b865985cdbb24, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1030,8 +1042,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7818050914223342356}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 3.5, y: -0.5049, z: 0}
+  m_LocalScale: {x: 1.5339569, y: 1.5497581, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -1076,8 +1088,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.05740881, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 6bdca5ffcfa08204a9f50914c28d1073, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1100,16 +1112,16 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.000000059604645, y: -0.043861806}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.64, y: 0.64}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.75, y: 0.75}
+  m_Size: {x: 0.54031026, y: 0.44175255}
   m_EdgeRadius: 0
