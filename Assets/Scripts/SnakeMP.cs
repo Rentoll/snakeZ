@@ -12,9 +12,9 @@ public class SnakeMP : Snake
     {
         base.Start();
         myPV = GetComponent<PhotonView>();
-        if (!enemy)
+        if (enemy)
         {
-            GetComponent<SpriteRenderer>().color = Color.blue;
+            GetComponent<SpriteRenderer>().color = Color.red;
         }
     }
 
