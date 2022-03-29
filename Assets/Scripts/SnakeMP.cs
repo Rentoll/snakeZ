@@ -10,12 +10,16 @@ public class SnakeMP : Snake
     // Start is called before the first frame update
     void Start()
     {
+        GameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<MPGameController>();
         base.Start();
         myPV = GetComponent<PhotonView>();
+
         if (enemy)
         {
             GetComponent<SpriteRenderer>().color = Color.red;
         }
+
+        
     }
 
     // Update is called once per frame
@@ -39,7 +43,9 @@ public class SnakeMP : Snake
 
     protected override void Grow()
     {
+        Debug.Log("Grow mp");
         GameObject segment = PhotonNetwork.Instantiate(Path.Combine("Prefabs", "SnakeSegmentMP"), this.transform.position, this.transform.rotation);
+        segment.SetActive(false);
         base.GrowBase(segment);
     }
 
