@@ -12,6 +12,8 @@ public class Snake : MonoBehaviour {
     protected List<GameObject> snakeSegments;
 
     public bool enemy = false;
+
+    public GameController GameController;
     
     protected void Start() {
         snakeSegments = new List<GameObject>();
@@ -38,6 +40,7 @@ public class Snake : MonoBehaviour {
 
     protected void Control(){
         oldDirection = direction;
+
         if (enemy == false) {
             if (Input.GetKeyDown(KeyCode.W)) {
                 direction = Vector2.up;
@@ -83,7 +86,7 @@ public class Snake : MonoBehaviour {
         }
         
         segment.gameObject.transform.position = snakeSegments[snakeSegments.Count - 1].gameObject.transform.position;
-
+        segment.SetActive(true);
         snakeSegments.Add(segment);
     }
 
@@ -109,12 +112,22 @@ public class Snake : MonoBehaviour {
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.tag == "Food") {
+    private void OnTriggerEnter2D(Collider2D collision) 
+    {
+        Debug.Log("TriggerEnter");
+        if (collision.tag == "Food")
+        {
             Grow();
+            
         }
-       
-        if(collision.tag == "Obstacle" || collision.tag == "Snake") {
+        else
+        {
+            Debug.Log("PrePoint");
+            if (collision.tag == "Snake" || collision.tag == "SnakeSegment")
+            {
+                GameController.AddPointAndCheckForWinner(enemy);
+            }
+
             ResetGame();
         }
     }

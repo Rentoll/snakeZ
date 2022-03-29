@@ -10,14 +10,20 @@ public class StartLobby : MonoBehaviourPunCallbacks
 
     [SerializeField]
     private GameObject StartMPButton;
-    // Start is called before the first frame update
+    
     public override void OnConnectedToMaster()
     {
         Debug.Log("OnConnectedtoMaster");
         PhotonNetwork.AutomaticallySyncScene = true;
         StartMPButton.SetActive(true);
     }
-
+    private void Start()
+    {
+        if (PhotonNetwork.IsConnected)
+        {
+            StartMPButton.SetActive(true);
+        }
+    }
     public void OnStartMP()
     {
         Debug.Log("OnStartMP");
