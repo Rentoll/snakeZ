@@ -1,1 +1,2 @@
-# snakeZ
+# snakeZz
+# Multiplayer snake game
